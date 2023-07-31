@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SecondActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout"
@@ -14,23 +14,20 @@
         tools:layout_editor_absoluteY="1dp">
 
         <Button
-            android:id="@+id/bAlert"
+            android:id="@+id/bAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="156dp"
-            android:layout_marginTop="264dp"
-            android:text="Alert"
-            android:onClick="onAlert"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Add"
+            tools:layout_editor_absoluteX="93dp"
+            tools:layout_editor_absoluteY="132dp" />
 
         <Button
-            android:id="@+id/bNewAlert"
+            android:id="@+id/bSub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next Alert"
-            android:onClick="onNewClick"
-            tools:layout_editor_absoluteX="156dp"
-            tools:layout_editor_absoluteY="197dp" />
+            android:text="Substract"
+            tools:layout_editor_absoluteX="211dp"
+            tools:layout_editor_absoluteY="132dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
