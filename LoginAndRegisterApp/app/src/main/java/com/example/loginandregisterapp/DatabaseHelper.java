@@ -26,8 +26,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MyDatabase.execSQL("DROP TABLE if exists allusers");
     }
     public void updatePassword(String mail,String pwd,String newPassword){
-        SQLiteDatabase myDatabase = this.getWritableDatabase();
-        myDatabase.execSQL("UPDATE allusers SET password = "+newPassword+" WHERE email = "+mail+" AND password = "+pwd);
+        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+        String query = "UPDATE allusers SET password = "+newPassword+" WHERE email = "+mail+" AND password = "+pwd;
+        MyDatabase.execSQL(query);
     }
     public Boolean insertData(String email,String password){
         SQLiteDatabase myDatabase = this.getWritableDatabase();
