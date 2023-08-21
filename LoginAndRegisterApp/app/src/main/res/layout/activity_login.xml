@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/LR"
+    android:background="@drawable/lr"
     tools:context=".LoginActivity">
     
     <ScrollView
@@ -43,7 +43,7 @@
             <EditText
                 android:layout_width="350dp"
                 android:layout_height="60dp"
-                android:id="@+id/Login_password"
+                android:id="@+id/login_password"
                 android:background="@drawable/lavander_border"
                 android:layout_marginTop="20dp"
                 android:padding="8dp"
@@ -59,7 +59,7 @@
                 android:id="@+id/login_button"
                 android:textSize="20sp"
                 android:layout_marginTop="30dp"
-                app:cornerRadious = "30pd"/>
+                app:cornerRadius = "30dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

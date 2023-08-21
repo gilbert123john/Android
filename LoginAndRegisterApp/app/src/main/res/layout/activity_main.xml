@@ -1,20 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:background="@drawable/homepagebackground"
+    tools:context=".LoginActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:textSize="36sp"
-        android:textColor="@color/lavender"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="573dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical"
+            android:padding="20dp"
+            >
+
+            <TextView
+                android:id="@+id/homeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:text="Fight N Fitt"
+                android:textColor="@color/blue"
+                android:textSize="36dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="1dp"
+                android:text="(Martial Arts Training Center, Thoppumpady)"
+                android:textColor="@color/blue"
+                android:textSize="17dp" />
+            <TextView
+                android:id="@+id/welcomeText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:padding="8dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="26dp" />
+            <Button
+                android:layout_width="350dp"
+                android:layout_height="70dp"
+                android:text="Change Password"
+                android:id="@+id/changePassword"
+                android:textSize="20sp"
+                android:layout_marginTop="30dp"
+                app:cornerRadius = "30dp"/>
+            <Button
+                android:layout_width="350dp"
+                android:layout_height="70dp"
+                android:text="Logout"
+                android:id="@+id/logout"
+                android:textSize="20sp"
+                android:layout_marginTop="30dp"
+                app:cornerRadius = "30dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

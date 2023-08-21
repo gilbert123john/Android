@@ -1,6 +1,8 @@
 package com.example.loginandregisterapp;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -22,5 +24,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase MyDatabase, int i, int i1) {
         MyDatabase.execSQL("DROP TABLE if exists allusers");
+    }
+    public void updatePassword(String mail,String pwd,String newPassword){
+        SQLiteDatabase myDatabase = this.getWritableDatabase();
+        myDatabase.execSQL("UPDATE allusers SET password = "+newPassword+" WHERE email = "+mail+" AND password = "+pwd);
+    }
+    public Boolean insertData(String email,String password){
+        SQLiteDatabase myDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("email",email);
+        contentValues.put("password",password);
+        long result = myDatabase.insert("allusers",null,contentValues);
+
+        if(result==-1){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    public boolean checkEmail(String email){
+        SQLiteDatabase myDatabase = this.getWritableDatabase();
+        Cursor cursor = myDatabase.rawQuery("Select * from allusers where email = ?",new String[]{email});
+        if(cursor.getCount()>0){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    public boolean checkEmailPassword(String email,String password){
+        SQLiteDatabase myDatabase = this.getWritableDatabase();
+        Cursor cursor = myDatabase.rawQuery("Select * from allusers where email = ? and password = ? ",new String[]{email,password});
+        if(cursor.getCount()>0){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
