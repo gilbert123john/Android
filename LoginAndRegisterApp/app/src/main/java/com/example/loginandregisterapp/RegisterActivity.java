@@ -22,18 +22,20 @@ public class RegisterActivity extends AppCompatActivity {
         binder.registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = binder.registerEmail.getText().toString();
-                String password = binder.registerPassword.getText().toString();
-                String confirmPassword = binder.registerConfirm.getText().toString();
+                String userName = binder.registerName.getText().toString();
+                String phoneNumber = binder.registerPhoneNumber.getText().toString();
+                String confirmPhoneNumber = binder.registerConfirmPhone.getText().toString();
+                String address = binder.txtAddress.getText().toString();
 
-                if(email.equals("") || password.equals("") || confirmPassword.equals("")){
+
+                if(userName.equals("") || phoneNumber.equals("") || confirmPhoneNumber.equals("")|| address.equals("")){
                     Toast.makeText(RegisterActivity.this, "All Fields are required", Toast.LENGTH_SHORT).show();
                 }else{
-                if(password.equals(confirmPassword)){
-                    boolean checkUserEmail = databaseHelper.checkEmail(email);
+                if(phoneNumber.equals(confirmPhoneNumber)){
+                    boolean checkUserEmail = databaseHelper.checkPhone(phoneNumber);
 
                     if(checkUserEmail == false){
-                        boolean insert = databaseHelper.insertData(email,password);
+                        boolean insert = databaseHelper.insertData(phoneNumber,userName,address);
 
                         if(insert == true){
                             Toast.makeText(RegisterActivity.this, "Registration Success", Toast.LENGTH_SHORT).show();

@@ -23,19 +23,19 @@ public class LoginActivity extends AppCompatActivity {
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = binding.loginEmail.getText().toString();
-                String password = binding.loginPassword.getText().toString();
+                String userName = binding.loginName.getText().toString();
+                String phone = binding.loginNumber.getText().toString();
 
-                if(email.equals("") || password.equals("")){
+                if(userName.equals("") || phone.equals("")){
                     Toast.makeText(LoginActivity.this, "All Fields are required", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    boolean checkCredentials = databaseHelper.checkEmailPassword(email,password);
+                    boolean checkCredentials = databaseHelper.checkPhoneName(phone,userName);
                     if(checkCredentials == true){
                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.putExtra("email", email);
+                        intent.putExtra("userName", userName);
                         startActivity(intent);
                     }else{
                         Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();

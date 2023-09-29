@@ -23,7 +23,7 @@ public class ChangeNewPassword extends AppCompatActivity {
         setContentView(binding.getRoot());
         databaseHelper = new DatabaseHelper(this);
         Intent intent = getIntent();
-        email = intent.getStringExtra("email");
+        email = intent.getStringExtra("userName");
 
         binding.save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +35,7 @@ public class ChangeNewPassword extends AppCompatActivity {
                 if(oldPassword.equals("") || newPassword.equals("") || confirmPassword.equals("")){
                     Toast.makeText(ChangeNewPassword.this, "All Fields are required", Toast.LENGTH_SHORT).show();
                 }else{
-                    boolean checkCredentials = databaseHelper.checkEmailPassword(email,oldPassword);
+                    boolean checkCredentials = databaseHelper.checkPhoneName(email,oldPassword);
                     if(checkCredentials == true){
                         if(newPassword.equals(confirmPassword)){
                             databaseHelper.updatePassword(email,oldPassword,newPassword);

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/lr"
+    android:background="@drawable/screenone"
     tools:context=".LoginActivity">
     
     <ScrollView
@@ -24,42 +24,43 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/HeadText1"
-                android:text="Fight N Fitt Login"
+                android:text="Door Nxt App"
                 android:layout_gravity="center"
                 android:padding="8dp"
-                android:textSize="25dp"
+                android:textSize="35dp"
                 android:layout_marginTop="8dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/green"/>
             <EditText
                 android:layout_width="350dp"
                 android:layout_height="60dp"
-                android:id="@+id/login_email"
+                android:id="@+id/login_name"
                 android:background="@drawable/lavander_border"
                 android:layout_marginTop="30dp"
                 android:padding="8dp"
-                android:hint="Email"
-                android:drawableLeft="@drawable/baseline_email_24"
+                android:hint="User Name"
+                android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"/>
             <EditText
                 android:layout_width="350dp"
                 android:layout_height="60dp"
-                android:id="@+id/login_password"
+                android:id="@+id/login_number"
                 android:background="@drawable/lavander_border"
                 android:layout_marginTop="20dp"
                 android:padding="8dp"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:drawableLeft="@drawable/baseline_lock_24"
+                android:hint="Phone Number"
+                android:drawableLeft="@drawable/baseline_local_phone_24"
                 android:drawablePadding="8dp"/>
 
             <Button
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:text="Login"
                 android:id="@+id/login_button"
-                android:textSize="20sp"
+                android:layout_width="214dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="70dp"
                 android:layout_marginTop="30dp"
-                app:cornerRadius = "30dp"/>
+                android:text="Login"
+                android:textSize="20sp"
+                app:cornerRadius="30dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -10,32 +10,33 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final String databaseName = "Signup.db";
+    public static final String databaseName = "MyApp.db";
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "Signup.db", null  , 1);
+        super(context, "MyApp.db", null  , 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase MyDatabase) {
-        MyDatabase.execSQL("CREATE TABLE allusers(email TEXT primary key,password TEXT)");
+        MyDatabase.execSQL("CREATE TABLE regusers(phone TEXT primary key,userName TEXT,address TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDatabase, int i, int i1) {
-        MyDatabase.execSQL("DROP TABLE if exists allusers");
+        MyDatabase.execSQL("DROP TABLE if exists regusers");
     }
-    public void updatePassword(String mail,String pwd,String newPassword){
+    public void updatePassword(String phoneNo,String uName,String newUserName){
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
-        String query = "UPDATE allusers SET password = "+newPassword+" WHERE email = "+mail+" AND password = "+pwd;
+        String query = "UPDATE regusers SET userName = "+newUserName+" WHERE phone = "+phoneNo+" AND userName = "+uName;
         MyDatabase.execSQL(query);
     }
-    public Boolean insertData(String email,String password){
+    public Boolean insertData(String phone,String userName,String address){
         SQLiteDatabase myDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("email",email);
-        contentValues.put("password",password);
-        long result = myDatabase.insert("allusers",null,contentValues);
+        contentValues.put("phone",phone);
+        contentValues.put("userName",userName);
+        contentValues.put("address",address);
+        long result = myDatabase.insert("regusers",null,contentValues);
 
         if(result==-1){
             return false;
@@ -44,9 +45,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
-    public boolean checkEmail(String email){
+    public boolean checkPhone(String phone){
         SQLiteDatabase myDatabase = this.getWritableDatabase();
-        Cursor cursor = myDatabase.rawQuery("Select * from allusers where email = ?",new String[]{email});
+        Cursor cursor = myDatabase.rawQuery("Select * from regusers where phone = ?",new String[]{phone});
         if(cursor.getCount()>0){
             return true;
         }
@@ -54,9 +55,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
     }
-    public boolean checkEmailPassword(String email,String password){
+    public boolean checkPhoneName(String phone,String userName){
         SQLiteDatabase myDatabase = this.getWritableDatabase();
-        Cursor cursor = myDatabase.rawQuery("Select * from allusers where email = ? and password = ? ",new String[]{email,password});
+        Cursor cursor = myDatabase.rawQuery("Select * from regusers where phone = ? and userName = ? ",new String[]{phone,userName});
         if(cursor.getCount()>0){
             return true;
         }

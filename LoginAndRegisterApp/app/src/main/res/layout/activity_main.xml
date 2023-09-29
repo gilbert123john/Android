@@ -6,66 +6,93 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/homepagebackground"
+    android:background="@drawable/screentwo"
     tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/homeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:text="Door Nxt"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        android:textSize="36dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="1dp"
+        android:text="(Build your business to nxt level)"
+        android:textColor="@color/white"
+        android:textSize="17dp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+        <TextView
+            android:id="@+id/welcomeText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:padding="8dp"
+            android:text=""
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="26dp" />
+
+
+    </LinearLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="573dp">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:orientation="vertical"
-            android:padding="20dp"
-            >
+            android:padding="20dp">
 
-            <TextView
-                android:id="@+id/homeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:padding="8dp"
-                android:text="Fight N Fitt"
-                android:textColor="@color/blue"
-                android:textSize="36dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="1dp"
-                android:text="(Martial Arts Training Center, Thoppumpady)"
-                android:textColor="@color/blue"
-                android:textSize="17dp" />
-            <TextView
-                android:id="@+id/welcomeText1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:padding="8dp"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="26dp" />
             <Button
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:text="Change Password"
-                android:id="@+id/changePassword"
+                android:id="@+id/addGroup"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:text="Create Business Groups"
+                android:drawableLeft="@drawable/add_business"
                 android:textSize="20sp"
-                android:layout_marginTop="30dp"
-                app:cornerRadius = "30dp"/>
+                app:cornerRadius="30dp" />
+
             <Button
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:text="Logout"
-                android:id="@+id/logout"
+                android:id="@+id/SearchGroup"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/icon_search"
+                android:onClick="onSearchGroup"
+                android:text="Search Your Groups"
                 android:textSize="20sp"
-                android:layout_marginTop="30dp"
-                app:cornerRadius = "30dp"/>
+                app:cornerRadius="30dp" />
 
         </LinearLayout>
+
     </ScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_user_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_user_layout"
+        android:padding="10dp" />
 </LinearLayout>

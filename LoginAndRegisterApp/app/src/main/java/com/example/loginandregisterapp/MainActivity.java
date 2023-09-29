@@ -23,25 +23,29 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_main);
         welcomeText = findViewById(R.id.welcomeText1);
         Intent intent = getIntent();
-        email = intent.getStringExtra("email");
+        email = intent.getStringExtra("userName");
         String[] name = email.split("@");
         welcomeText.setText("Welcome "+name[0].toUpperCase().toString());
 
-        binder.logout.setOnClickListener(new View.OnClickListener() {
+        binder.SearchGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Logout "+name[0].toUpperCase(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                Toast.makeText(MainActivity.this, "Search", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getApplicationContext(), SearchUserActivity.class);
+                //intent.putExtra("userName", userName);
                 startActivity(intent);
             }
         });
-        binder.changePassword.setOnClickListener(new View.OnClickListener() {
+        binder.addGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ChangeNewPassword.class);
-                intent.putExtra("email", email);
+                Toast.makeText(MainActivity.this, "Add Group", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getApplicationContext(), CreatGroupActivity.class);
                 startActivity(intent);
             }
         });
     }
+
 }
